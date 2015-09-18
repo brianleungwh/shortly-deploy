@@ -51,6 +51,7 @@ describe('', function() {
             'url': 'http://www.roflzoo.com/'})
           .expect(200)
           .expect(function(res) {
+            console.log(res.body);
             expect(res.body.url).to.equal('http://www.roflzoo.com/');
             expect(res.body.code).to.be.ok;
           })
@@ -122,6 +123,8 @@ describe('', function() {
 
       it('Shortcode redirects to correct url', function(done) {
         var sha = link.code;
+        console.log('Link: ' + link);
+        console.log('Link Code: ' + sha);
         request(app)
           .get('/' + sha)
           .expect(302)
