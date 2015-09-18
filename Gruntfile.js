@@ -77,9 +77,9 @@ module.exports = function(grunt) {
     shell: {
       prodServer: {
         command: [
-          'export NODE_ENV=production',
-          // 'git push azure master'
-          'grunt server-dev'
+          'git add .',
+          'git commit -m "Deployment commit"'
+          'git push azure master'
         ].join('&&')
       }
     },
